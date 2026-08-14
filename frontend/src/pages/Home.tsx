@@ -3,17 +3,11 @@ import {
   useEffect,
   useCallback,
   ChangeEvent,
-  ReactNode,
+  ReactElement,
 } from "react";
 import toast from "react-hot-toast";
 import { get, post, put, del } from "../api/axios";
-import {
-  Item,
-  ItemFilters,
-  CreateItemInput,
-  UpdateItemInput,
-  ApiResponse,
-} from "../types";
+import { Item, CreateItemInput, UpdateItemInput } from "../types";
 import ItemForm from "../components/ItemForm";
 import ItemList from "../components/ItemList";
 
@@ -23,7 +17,7 @@ interface FilterState {
   search: string;
 }
 
-const Home = (): ReactNode => {
+const Home = (): ReactElement => {
   const [items, setItems] = useState<Item[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [editingItem, setEditingItem] = useState<Item | null>(null);

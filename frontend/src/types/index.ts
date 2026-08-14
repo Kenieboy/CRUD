@@ -26,9 +26,9 @@ export interface UpdateItemInput {
 }
 
 export interface ItemFilters {
-  status?: ItemStatus;
-  priority?: ItemPriority;
-  search?: string;
+  status?: ItemStatus; // optional filter by status
+  priority?: ItemPriority; // optional filter by priority
+  search?: string; // optional text search in title/description
 }
 
 export interface ApiResponse<T> {
