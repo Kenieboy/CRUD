@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:5000/api/items";
+const API_URL = "https://kenospace.online/api/items";
 
 export interface Item {
   id: number;
