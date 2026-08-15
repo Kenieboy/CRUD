@@ -17,16 +17,32 @@ app.use(express.json());
 // GET ALL ITEMS
 // ==========================
 
+// app.get("/api/items", async (req, res) => {
+//   try {
+//     const [rows] = await pool.query("SELECT * FROM items ORDER BY id DESC");
+
+//     res.json(rows);
+//   } catch (error) {
+//     console.error(error);
+
+//     res.status(500).json({
+//       message: "Failed to fetch items",
+//     });
+//   }
+// });
+
 app.get("/api/items", async (req, res) => {
   try {
     const [rows] = await pool.query("SELECT * FROM items ORDER BY id DESC");
 
     res.json(rows);
   } catch (error) {
-    console.error(error);
+    console.error("GET ITEMS ERROR:", error);
 
     res.status(500).json({
       message: "Failed to fetch items",
+      error: error.message,
+      code: error.code,
     });
   }
 });
